@@ -28,7 +28,8 @@ class TestStatisticsService(unittest.TestCase):
     def test_search_by_team(self):
         self.assertEqual(len(self.stats.team("EDM")), 3)
 
-    def test_top(self):
+    def test_top_by_points(self):
+        # Points is the default sorting criteria
         self.assertEqual(self.stats.top(1)[0].name, "Gretzky")
 
     def test_top_by_goals(self):
