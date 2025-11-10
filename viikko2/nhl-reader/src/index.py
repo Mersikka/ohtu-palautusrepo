@@ -1,10 +1,11 @@
-import requests
 import re
-from player import Player
+
+import requests
 from rich.console import Console
 from rich.table import Table
-from rich.panel import Panel
 from rich.text import Text
+
+from player import Player
 
 console = Console(color_system="auto")
 
@@ -12,7 +13,7 @@ console = Console(color_system="auto")
 class PlayerReader:
     def __init__(self, url):
         self.url = url
-        self.response = requests.get(url).json()
+        self.response = requests.get(url, timeout=10).json()
 
 
 class PlayerStats:
