@@ -97,8 +97,8 @@ def main():
             else:
                 url = f"https://studies.cs.helsinki.fi/nhlstats/{season}/players"
             break
-    console.print()
-
+    console.print('\n')
+    
     nat = ""
     while True:
         nat = get_nationality()
