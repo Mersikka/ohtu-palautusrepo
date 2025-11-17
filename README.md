@@ -1,1 +1,1 @@
-Link to web counter repo https://github.com/Mersikka/webcounter
+Link to web counter repo https://github.com/Mersikka/ohtu-webcounter
