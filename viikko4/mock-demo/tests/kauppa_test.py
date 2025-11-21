@@ -20,7 +20,7 @@ class TestKauppa(unittest.TestCase):
         kauppa.lisaa_ostos(5)
         kauppa.maksa("1111")
 
-        pankki_mock.maksa.assert_called()
+        pankki_mock.maksa.assert_called_with(ANY, ANY, 1000)
 
     def test_kutsutaan_pankkia_oikealla_tilinumerolla(self):
         pankki_mock = Mock()
