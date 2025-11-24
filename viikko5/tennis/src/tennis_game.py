@@ -1,10 +1,6 @@
-from enum import Enum, auto
+from logging import StringTemplateStyle
+from pickle import SHORT_BINSTRING
 
-class Advantage(Enum):
-    P1ADV = auto()
-    P2ADV = auto()
-    P1WIN = auto()
-    P2WIN = auto()
 
 class TennisGame:
     def __init__(self, player1_name, player2_name):
@@ -28,13 +24,25 @@ class TennisGame:
         score_diff = self.scores[self.p1] - self.scores[self.p2]
         match score_diff:
             case 1:
-                return Advantage.P1ADV.name
+                return "P1ADV"
             case -1:
-                return Advantage.P2ADV.name
+                return "P2ADV"
             case _ if score_diff >= 2:
-                return Advantage.P1WIN.name
+                return "P1WIN"
             case _ if score_diff <= -2:
-                return Advantage.P2WIN.name
+                return "P2WIN"
+
+    def score_to_string(self, score):
+        match score:
+            case 0:
+                string = "Love"
+            case 1:
+                string = "Fifteen"
+            case 2:
+                string = "Thirty"
+            case 3:
+                string = "Forty"
+        return string
 
     def get_score(self):
         output = ""
@@ -60,17 +68,8 @@ class TennisGame:
                 case "P2WIN":
                     output = "Win for player2"
         else:
-            for player, score in self.scores.items():
-                if player == self.p2:
-                    output += "-"
-                match score:
-                    case 0:
-                        output += "Love"
-                    case 1:
-                        output += "Fifteen"
-                    case 2:
-                        output += "Thirty"
-                    case 3:
-                        output += "Forty"
-
+            output += self.score_to_string(self.scores[self.p1])
+            output += "-"
+            output += self.score_to_string(self.scores[self.p2])
+            
         return output
