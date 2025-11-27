@@ -1,7 +1,3 @@
-from logging import StringTemplateStyle
-from pickle import SHORT_BINSTRING
-
-
 class TennisGame:
     def __init__(self, player1_name, player2_name):
         self.p1 = player1_name
