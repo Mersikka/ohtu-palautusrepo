@@ -71,5 +71,4 @@ class TennisGame:
             output += self.score_to_string(self.scores[self.p1])
             output += "-"
             output += self.score_to_string(self.scores[self.p2])
-            
         return output
