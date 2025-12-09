@@ -15,7 +15,6 @@ class Or:
 
     def test(self, player):
         for matcher in self._matchers:
-            print(matcher)
             if matcher.test(player):
                 return True
 
